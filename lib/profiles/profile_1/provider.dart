@@ -1,4 +1,5 @@
-import 'profile_1/user.dart'; 
+import 'user.dart';
+
 class ProfileProvider {
   static Profile getProfile() {
     return Profile(
