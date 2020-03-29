@@ -207,15 +207,29 @@ class _Profile2State extends State<Profile2> {
     );
   }
 
-  Container _friendsBar(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 20.0),
-      height: 60,
-      width: MediaQuery.of(context).size.width,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: List.generate(25, (index) => _friendsAvatarBar('image')),
-      ),
+  Column _friendsBar(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 24.0),
+          child: Text(
+            'FRIENDS',
+            style: TextStyle(
+              color: _textColor,
+            ),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 20.0),
+          height: 60,
+          width: MediaQuery.of(context).size.width,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: List.generate(25, (index) => _friendsAvatarBar('image')),
+          ),
+        ),
+      ],
     );
   }
 
