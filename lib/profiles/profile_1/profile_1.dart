@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'provider.dart';
-import 'user.dart';
+import 'package:flutter_ui/profiles/profile_1/user.dart';
+import 'package:flutter_ui/profiles/profile_1/provider.dart';
+ 
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -178,7 +179,6 @@ class _Profile1State extends State<Profile1> {
 class ProfilePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
 
     Path path = Path();
     Paint paint = Paint();
@@ -197,7 +197,6 @@ class ProfilePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return false;
   }
 }

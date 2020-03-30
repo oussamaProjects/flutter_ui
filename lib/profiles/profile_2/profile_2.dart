@@ -280,7 +280,7 @@ _friendsAvatarBar(String image) {
 class ProfilePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
+    // 
 
     Path path = Path();
     Paint paint = Paint();
@@ -299,7 +299,6 @@ class ProfilePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return false;
   }
 }

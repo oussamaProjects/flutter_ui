@@ -15,6 +15,7 @@ class Profile1 extends StatefulWidget {
 
 class _Profile1State extends State<Profile1> {
   @override
+  
   Profile profile = ProfileProvider.getProfile();
   static Color _textColor = Color(0xFF4e4e4e);
 
@@ -126,7 +127,7 @@ class _Profile1State extends State<Profile1> {
                   color: _textColor,
                   fontSize: 16,
                   height: 1.2,
-                  letterSpacing: 1.1),
+                  letterSpacing: 1.1,),
             ),
           ),
         ],
@@ -180,7 +181,6 @@ class _Profile1State extends State<Profile1> {
 class ProfilePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
 
     Path path = Path();
     Paint paint = Paint();
@@ -199,7 +199,6 @@ class ProfilePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return false;
   }
 }
