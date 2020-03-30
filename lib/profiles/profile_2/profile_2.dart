@@ -21,6 +21,22 @@ class _Profile2State extends State<Profile2> {
   static Color _textColor = Color(0xFF4e4e4e);
   static Color _textColorLight = Color(0XFFFFFFFF);
 
+  bool _visible = false;
+  bool _visibleAfter = false;
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: 400), () {
+      setState(() {
+        _visible = true;
+      });
+    }).then((value) {
+      setState(() {
+        _visibleAfter = true;
+      });
+    });
+  }
+
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(fontFamily: 'SFUI'),
@@ -112,16 +128,20 @@ class _Profile2State extends State<Profile2> {
                     shape: BoxShape.circle,
                     color: Colors.white.withOpacity(.2)),
               ),
-              Container(
-                height: 90,
-                width: 90,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: ExactAssetImage(
-                      'assets/profiles/profile.jpg',
+              AnimatedOpacity(
+                duration: Duration(milliseconds: 400),
+                opacity: _visibleAfter ? 1 : 0,
+                child: Container(
+                  height: 90,
+                  width: 90,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: ExactAssetImage(
+                        'assets/profiles/profile.jpg',
+                      ),
+                      fit: BoxFit.cover,
                     ),
-                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -196,14 +216,18 @@ class _Profile2State extends State<Profile2> {
     );
   }
 
-  Row _bottomBar(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        _bottomBarCounter('Followers', profile.followers.toString()),
-        _bottomBarCounter('Following', profile.following.toString()),
-        _bottomBarCounter('Friends', profile.friends.toString()),
-      ],
+  _bottomBar(BuildContext context) {
+    return AnimatedOpacity(
+      duration: Duration(milliseconds: 400),
+      opacity: _visible ? 1 : 0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _bottomBarCounter('Followers', profile.followers.toString()),
+          _bottomBarCounter('Following', profile.following.toString()),
+          _bottomBarCounter('Friends', profile.friends.toString()),
+        ],
+      ),
     );
   }
 
@@ -258,29 +282,32 @@ class _Profile2State extends State<Profile2> {
     color: _textColor,
     fontSize: 22.0,
   );
-}
-
-_friendsAvatarBar(String image) {
-  return Container(
-    height: 60,
-    width: 60,
-    margin: EdgeInsets.only(right: 8.0),
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      image: DecorationImage(
-        image: ExactAssetImage(
-          'assets/profiles/profile.jpg',
+  _friendsAvatarBar(String image) {
+    return AnimatedOpacity(
+      duration: Duration(milliseconds: 400),
+      opacity: _visible ? 1 : 0,
+      child: Container(
+        height: 60,
+        width: 60,
+        margin: EdgeInsets.only(right: 8.0),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+            image: ExactAssetImage(
+              'assets/profiles/profile.jpg',
+            ),
+            fit: BoxFit.cover,
+          ),
         ),
-        fit: BoxFit.cover,
       ),
-    ),
-  );
+    );
+  }
 }
 
 class ProfilePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // 
+    //
 
     Path path = Path();
     Paint paint = Paint();

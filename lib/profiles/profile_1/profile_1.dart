@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/profiles/profile_1/user.dart';
 import 'package:flutter_ui/profiles/profile_1/provider.dart';
- 
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,6 +14,18 @@ class Profile1 extends StatefulWidget {
 class _Profile1State extends State<Profile1> {
   @override
   Profile profile = ProfileProvider.getProfile();
+  bool _visible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: 500), () {
+      setState(() {
+        _visible = true;
+      });
+    });
+  }
+
   static Color _textColor = Color(0xFF4e4e4e);
 
   Widget build(BuildContext context) {
@@ -55,14 +66,21 @@ class _Profile1State extends State<Profile1> {
                   painter: ProfilePainter(),
                   child: Container(),
                 ),
-                Positioned(
-                  child: CircleAvatar(
-                    backgroundImage:
-                        ExactAssetImage("assets/profiles/profile.jpg"),
-                    radius: 40,
-                  ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 500),
+                  top: _visible
+                      ? MediaQuery.of(context).size.height * .22
+                      : MediaQuery.of(context).size.height * .20,
                   left: MediaQuery.of(context).size.height * .025,
-                  top: MediaQuery.of(context).size.height * .22,
+                  child: AnimatedOpacity(
+                    duration: Duration(milliseconds: 500),
+                    opacity: _visible ? 1 : 0,
+                    child: CircleAvatar(
+                      backgroundImage:
+                          ExactAssetImage("assets/profiles/profile.jpg"),
+                      radius: 40,
+                    ),
+                  ),
                 ),
                 _bodyText(context),
                 _bottomBar(context),
@@ -146,13 +164,17 @@ class _Profile1State extends State<Profile1> {
       left: 24,
       right: 24,
       bottom: 20,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          _bottomBarCounter('Followers', profile.followers.toString()),
-          _bottomBarCounter('Following', profile.following.toString()),
-          _bottomBarCounter('Friends', profile.friends.toString()),
-        ],
+      child: AnimatedOpacity(
+        opacity: _visible ? 1 : 0,
+        duration: Duration(milliseconds: 500),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            _bottomBarCounter('Followers', profile.followers.toString()),
+            _bottomBarCounter('Following', profile.following.toString()),
+            _bottomBarCounter('Friends', profile.friends.toString()),
+          ],
+        ),
       ),
     );
   }
@@ -179,7 +201,6 @@ class _Profile1State extends State<Profile1> {
 class ProfilePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-
     Path path = Path();
     Paint paint = Paint();
 
