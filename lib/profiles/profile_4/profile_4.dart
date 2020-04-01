@@ -93,7 +93,6 @@ class _Profile4State extends State<Profile4> {
     );
   }
 
-  
   _profileAvatar(BuildContext context) {
     return AnimatedOpacity(
       duration: Duration(milliseconds: 400),
@@ -137,7 +136,8 @@ class _Profile4State extends State<Profile4> {
       ),
     );
   }
-_profileButtons(BuildContext context) {
+
+  _profileButtons(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
@@ -149,7 +149,8 @@ _profileButtons(BuildContext context) {
                 color: _textColor,
               ),
             ),
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
@@ -213,7 +214,7 @@ _profileButtons(BuildContext context) {
       children: <Widget>[
         SizedBox(height: 10.0),
         Padding(
-          padding: const EdgeInsets.only(top:16.0, bottom: 8.0),
+          padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
           child: Text(
             'ABOUT ME',
             style: TextStyle(
@@ -237,7 +238,7 @@ _profileButtons(BuildContext context) {
     );
   }
 
-    _bottomBar(BuildContext context) {
+  _bottomBar(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Column(

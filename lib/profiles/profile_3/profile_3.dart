@@ -280,6 +280,25 @@ class _Profile3State extends State<Profile3> {
     );
   }
 
+  Container _friendsAvatarBar(String image) {
+    return Container(
+      height: 60,
+      width: 60,
+      margin: EdgeInsets.only(top: 2.0, bottom: 2.0, right: 8.0),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(color: Colors.black87, blurRadius: 2.0, spreadRadius: 0.0)
+        ],
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: ExactAssetImage('assets/profiles/profile.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+
   Column _photosBar(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -336,24 +355,6 @@ class _Profile3State extends State<Profile3> {
           style: _bottomBarCounterStyle,
         ),
       ],
-    );
-  }
-
-  Container _friendsAvatarBar(String image) {
-    return Container(
-      height: 60,
-      width: 60,
-      margin: EdgeInsets.only(top: 2.0, bottom: 2.0, right: 8.0),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(color: Colors.black87, blurRadius: 2.0, spreadRadius: 0.0)
-        ],
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: ExactAssetImage('assets/profiles/profile.jpg'),
-          fit: BoxFit.cover,
-        ),
-      ),
     );
   }
 
