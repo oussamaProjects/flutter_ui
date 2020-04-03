@@ -12,7 +12,6 @@ class Profile1 extends StatefulWidget {
 }
 
 class _Profile1State extends State<Profile1> {
-  @override
   Profile profile = ProfileProvider.getProfile();
   bool _visible = false;
 
@@ -27,7 +26,7 @@ class _Profile1State extends State<Profile1> {
   }
 
   static Color _textColor = Color(0xFF4e4e4e);
-
+  @override
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(fontFamily: 'SFUI'),

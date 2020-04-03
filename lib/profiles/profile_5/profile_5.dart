@@ -11,10 +11,9 @@ class Profile5 extends StatefulWidget {
 
 class _Profile5State extends State<Profile5>
     with SingleTickerProviderStateMixin {
-  @override
   Profile profile = ProfileProvider.getProfile();
   static Color _textColor = Color(0xFF4e4e4e);
-   
+
   TabController _tabController;
 
   @override
@@ -22,16 +21,13 @@ class _Profile5State extends State<Profile5>
     super.initState();
     _tabController = new TabController(vsync: this, length: 4);
     Future.delayed(Duration(milliseconds: 400), () {
-      setState(() {
-        
-      });
+      setState(() {});
     }).then((value) {
-      setState(() {
-         
-      });
+      setState(() {});
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -273,8 +269,7 @@ class _Profile5State extends State<Profile5>
       ),
     );
   }
- 
-    
+
   _photos(BuildContext context) {
     return Container(
       child: GridView.count(

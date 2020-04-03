@@ -16,8 +16,7 @@ class _Profile4State extends State<Profile4> {
   Profile profile = ProfileProvider.getProfile();
 
   static Color _textColor = Color(0xFF4e4e4e);
-  bool _visible = false;
-  bool _visibleAfter = false;
+  bool _visible = false; 
 
   @override
   void initState() {
@@ -27,8 +26,7 @@ class _Profile4State extends State<Profile4> {
         _visible = true;
       });
     }).then((value) {
-      setState(() {
-        _visibleAfter = true;
+      setState(() { 
       });
     });
   }

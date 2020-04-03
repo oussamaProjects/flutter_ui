@@ -14,7 +14,7 @@ class Profile2 extends StatefulWidget {
 }
 
 class _Profile2State extends State<Profile2> {
-  @override
+  
   final ScrollController scrollController = ScrollController();
 
   Profile profile = ProfileProvider.getProfile();
@@ -36,7 +36,7 @@ class _Profile2State extends State<Profile2> {
       });
     });
   }
-
+@override
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(fontFamily: 'SFUI'),

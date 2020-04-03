@@ -1,7 +1,4 @@
-import 'dart:ui';
-
-import 'dart:ui';
-
+import 'dart:ui'; 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_ui/profiles/profile_3/user.dart';
@@ -17,7 +14,7 @@ class Profile3 extends StatefulWidget {
 }
 
 class _Profile3State extends State<Profile3> {
-  @override
+  
   Profile profile = ProfileProvider.getProfile();
   bool _visible = false;
   bool _visibleAfter = false;
@@ -36,7 +33,7 @@ class _Profile3State extends State<Profile3> {
   }
 
   static Color _textColor = Color(0xFF4e4e4e);
-
+@override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
