@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/chats/conversation.dart';
-import 'package:flutter_ui/chats/message.dart';
-import 'package:flutter_ui/chats/message_provider.dart';
+import 'package:flutter_ui/chats/message.dart'; 
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

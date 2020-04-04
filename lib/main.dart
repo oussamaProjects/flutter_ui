@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/chats/chat2/chat_screen.dart';
-import 'package:flutter_ui/chats/message_provider.dart';
+// import 'package:flutter_ui/chats/chat2/chat_screen.dart';
+// import 'package:flutter_ui/chats/message_provider.dart';
+import 'package:flutter_ui/registrations/registration.dart';
 // import 'package:flutter_ui/chats/chat1/chat_list.dart';
 // import 'package:flutter_ui/profiles/profile_1/profile_1.dart';
 // import 'package:flutter_ui/profiles/profile_2/profile_2.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ChatScreen( MessageProvider.getConversation(), MessageProvider.getConversation().users[0].name),);
+        home: Registraion()
+    );
   }
 }
