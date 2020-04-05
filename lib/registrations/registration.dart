@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-class Registraion extends StatefulWidget {
-  Registraion({Key key}) : super(key: key);
+class Registration extends StatefulWidget {
+  Registration({Key key}) : super(key: key);
 
   @override
-  _RegistraionState createState() => _RegistraionState();
+  _RegistrationState createState() => _RegistrationState();
 }
 
-class _RegistraionState extends State<Registraion> {
+class _RegistrationState extends State<Registration> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
